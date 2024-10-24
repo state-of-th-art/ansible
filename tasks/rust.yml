@@ -1,0 +1,33 @@
+- name: Install Rust Nightly Build
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Rust using rustup
+      shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      tags:
+        - install
+        - rust
+
+    - name: Add Rust to PATH
+      shell: echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
+      tags:
+        - install
+        - rust
+
+    - name: Source the updated .bashrc
+      shell: source ~/.bashrc
+      tags:
+        - install
+        - rust
+
+    - name: Install nightly version of Rust
+      shell: rustup install nightly
+      tags:
+        - install
+        - rust
+
+    - name: Set nightly as default
+      shell: rustup default nightly
+      tags:
+        - install
+        - rust

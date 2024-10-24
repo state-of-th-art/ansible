@@ -1,0 +1,14 @@
+- name: Install Typescript
+  npm:
+    name: typescript
+    global: yes
+  tags:
+    - install
+    - node
+- name: Install Elm Land
+  npm:
+    name: elm-land
+    global: yes
+  tags:
+    - install
+    - node

@@ -11,4 +11,6 @@
       - core
   tasks:
     - include: tasks/node.yml
+    - include: tasks/npm-packages.yml
+    - include: tasks/rust.yml
 
